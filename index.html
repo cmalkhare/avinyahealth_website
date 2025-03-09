@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvinyaHealth - Cloud-Based EMR for Primary Care</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 50px;
+        }
+        .cta {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        form input, form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const message = document.getElementById("message").value;
+                
+                if (name === "" || email === "" || message === "") {
+                    alert("All fields are required!");
+                } else {
+                    alert("Thank you for contacting us! We will get back to you soon.");
+                    form.reset();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>AvinyaHealth</h1>
+        <p>Cloud-Based EMR for Primary Care & Family Physicians</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Revolutionizing Digital Healthcare</h2>
+        <p>A simple, secure, and mobile-friendly solution for managing patient records.</p>
+        <a href="#pricing" class="cta">Get Started - Request a Demo</a>
+    </section>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>AvinyaHealth empowers doctors with a cloud-based EMR system that simplifies clinic management.</p>
+    </section>
+    
+    <section id="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Cloud-Based & Mobile-Friendly</li>
+            <li>Appointment Scheduling</li>
+            <li>AI-Driven Insights</li>
+            <li>e-Prescriptions</li>
+            <li>Billing & Payments</li>
+            <li>HIPAA & GDPR Compliance</li>
+        </ul>
+    </section>
+    
+    <section id="pricing">
+        <h2>Pricing Plans</h2>
+        <table>
+            <tr>
+                <th>Plan</th>
+                <th>Free (Ad-Supported)</th>
+                <th>Basic ₹999/month</th>
+                <th>Advanced ₹1999/month</th>
+            </tr>
+            <tr>
+                <td>EMR Access</td>
+                <td>✅</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>Billing & Payments</td>
+                <td>❌</td>
+                <td>✅</td>
+                <td>✅</td>
+            </tr>
+            <tr>
+                <td>AI-Driven Insights</td>
+                <td>❌</td>
+                <td>❌</td>
+                <td>✅</td>
+            </tr>
+        </table>
+        <a href="#contact" class="cta">Upgrade Now</a>
+    </section>
+    
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 AvinyaHealth. All rights reserved.</p>
+    </footer>
+</body>
+</html>
