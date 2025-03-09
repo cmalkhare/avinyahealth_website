@@ -3,166 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AvinyaHealth - Cloud-Based EMR for Primary Care</title>
+    <title>Avinya Health</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: white;
         }
-        header {
-            background-color: #007bff;
-            color: white;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
-        nav ul {
+        
+        header {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .logo {
+            height: 60px;
+            margin-right: 20px;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .nav-links {
+            display: flex;
             list-style: none;
+            margin: 0;
             padding: 0;
         }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
+        
+        .nav-links li {
+            margin-right: 20px;
         }
-        nav ul li a {
-            color: white;
+        
+        .nav-links li:last-child {
+            margin-right: 0;
+        }
+        
+        .nav-links a {
             text-decoration: none;
+            color: #333;
+            font-weight: bold;
         }
-        section {
-            padding: 50px;
+        
+        .nav-links a:hover {
+            color: #0078d7;
         }
-        .cta {
-            background-color: #28a745;
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #0078d7;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
+            border-radius: 4px;
             text-decoration: none;
-            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 30px;
         }
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
+        
+        .cta-button:hover {
+            background-color: #005fa3;
         }
-        table, th, td {
-            border: 1px solid black;
-            padding: 10px;
+        
+        .section {
+            padding: 60px 0;
+            border-radius: 8px;
+            margin: 40px 0;
         }
-        form {
-            margin-top: 20px;
+        
+        .about-section {
+            background-color: #f9f9f9;
         }
-        form input, form textarea {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
+        
+        .services-section {
+            background-color: #f0f7ff;
+        }
+        
+        .contact-section {
+            background-color: #f5f5f5;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .content h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 32px;
+        }
+        
+        .content h3 {
+            color: #0078d7;
+            margin-top: 30px;
+            font-size: 24px;
+        }
+        
+        .content h4 {
+            color: #333;
+            margin-top: 25px;
+            font-size: 20px;
+        }
+        
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .content ul {
+            margin-bottom: 30px;
+        }
+        
+        .content li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #0078d7;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            margin-top: 0;
+            color: #0078d7;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .contact-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin: 20px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            justify-content: center;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: #0078d7;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .contact-link {
+            color: #0078d7;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const form = document.querySelector("form");
-            
-            form.addEventListener("submit", function(event) {
-                event.preventDefault();
-                
-                const name = document.getElementById("name").value;
-                const email = document.getElementById("email").value;
-                const message = document.getElementById("message").value;
-                
-                if (name === "" || email === "" || message === "") {
-                    alert("All fields are required!");
-                } else {
-                    alert("Thank you for contacting us! We will get back to you soon.");
-                    form.reset();
-                }
-            });
-        });
-    </script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <h1>AvinyaHealth</h1>
-        <p>Cloud-Based EMR for Primary Care & Family Physicians</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section id="home">
-        <h2>Revolutionizing Digital Healthcare</h2>
-        <p>A simple, secure, and mobile-friendly solution for managing patient records.</p>
-        <a href="#pricing" class="cta">Get Started - Request a Demo</a>
-    </section>
-    
-    <section id="about">
-        <h2>About Us</h2>
-        <p>AvinyaHealth empowers doctors with a cloud-based EMR system that simplifies clinic management.</p>
-    </section>
-    
-    <section id="features">
-        <h2>Key Features</h2>
-        <ul>
-            <li>Cloud-Based & Mobile-Friendly</li>
-            <li>Appointment Scheduling</li>
-            <li>AI-Driven Insights</li>
-            <li>e-Prescriptions</li>
-            <li>Billing & Payments</li>
-            <li>HIPAA & GDPR Compliance</li>
-        </ul>
-    </section>
-    
-    <section id="pricing">
-        <h2>Pricing Plans</h2>
-        <table>
-            <tr>
-                <th>Plan</th>
-                <th>Free (Ad-Supported)</th>
-                <th>Basic ₹999/month</th>
-                <th>Advanced ₹1999/month</th>
-            </tr>
-            <tr>
-                <td>EMR Access</td>
-                <td>✅</td>
-                <td>✅</td>
-                <td>✅</td>
-            </tr>
-            <tr>
-                <td>Billing & Payments</td>
-                <td>❌</td>
-                <td>✅</td>
-                <td>✅</td>
-            </tr>
-            <tr>
-                <td>AI-Driven Insights</td>
-                <td>❌</td>
-                <td>❌</td>
-                <td>✅</td>
-            </tr>
-        </table>
-        <a href="#contact" class="cta">Upgrade Now</a>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Avinya Health Logo" class="logo">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="hero">
+            <h1>Welcome to Avinya Health</h1>
+            <p>Providing innovative healthcare solutions to improve lives and wellbeing.</p>
+            <a href="#about" class="cta-button">Learn More</a>
+        </section>
+        
+        <main>
+            <section id="about" class="section about-section">
+                <div class="content">
+                    <h2>About AvinyaHealth</h2>
+                    <p>At <span class="highlight">AvinyaHealth</span>, we are committed to revolutionizing healthcare accessibility and efficiency through cutting-edge digital solutions. Our mission is to empower <span class="highlight">primary care and family physicians in India</span> with a <span class="highlight">user-friendly, cloud-based EMR (Electronic Medical Records) system</span> that simplifies patient management, enhances workflow efficiency, and ensures seamless healthcare delivery.</p>
+                    
+                    <h3>Our Vision</h3>
+                    <p>We envision a healthcare ecosystem where <span class="highlight">every physician, regardless of their location or resources, has access to robust digital tools</span> that improve patient care, streamline operations, and foster better health outcomes.</p>
+                    
+                    <h3>What We Offer</h3>
+                    <ul>
+                        <li><span class="highlight">Cloud-Based EMR</span> – A flexible, mobile-friendly platform designed for <span class="highlight">primary care and family physicians</span> who currently rely on manual records.</li>
+                        <li><span class="highlight">Seamless Accessibility</span> – Works <span class="highlight">on tablets and mobile devices</span>, ensuring doctors can manage patient records <span class="highlight">anytime, anywhere</span>.</li>
+                        <li><span class="highlight">Intuitive & Efficient</span> – Designed for ease of use, eliminating the complexity of traditional EMR systems.</li>
+                        <li><span class="highlight">Scalable & Secure</span> – Built to grow with your practice while maintaining the highest standards of data security and compliance.</li>
+                    </ul>
+                    
+                    <h3>Why AvinyaHealth?</h3>
+                    <ul>
+                        <li><span class="highlight">Physician-Centric Approach</span> – We understand the unique challenges of healthcare professionals and build solutions that truly support them.</li>
+                        <li><span class="highlight">Technology for Better Care</span> – Our platform <span class="highlight">reduces administrative burdens</span>, allowing doctors to focus more on <span class="highlight">patient care</span>.</li>
+                        <li><span class="highlight">Innovation with Impact</span> – We bridge the gap between healthcare and technology, ensuring that physicians are <span class="highlight">equipped with the best digital tools</span> for success.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="services" class="section services-section">
+                <div class="content">
+                    <h2>What We Offer at AvinyaHealth</h2>
+                    <p>At <span class="highlight">AvinyaHealth</span>, we provide a <span class="highlight">modern, cloud-based EMR (Electronic Medical Records) system</span> designed to meet the needs of <span class="highlight">primary care and family physicians in India</span>. Our solution is built to be <span class="highlight">simple, accessible, and efficient</span>, ensuring that doctors can focus more on patient care rather than administrative burdens.</p>
+                    
+                    <div class="service-card">
+                        <h3>1. Cloud-Based EMR System</h3>
+                        <p>Our <span class="highlight">intuitive and mobile-friendly EMR platform</span> helps doctors <span class="highlight">digitize patient records, prescriptions, and medical history</span> with ease. It eliminates the need for paper-based records and improves efficiency.</p>
+                        <ul>
+                            <li><span class="highlight">Digital Patient Records</span> – Secure storage of <span class="highlight">patient history, diagnoses, prescriptions, and lab results</span> in an easy-to-access digital format.</li>
+                            <li><span class="highlight">Quick Data Entry</span> – Simple and fast documentation to reduce the time spent on record-keeping.</li>
+                            <li><span class="highlight">Automatic Updates & Backups</span> – Ensuring that your data is safe and always accessible.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>2. Mobile & Tablet-Friendly Access</h3>
+                        <p>We understand that many doctors prefer to use <span class="highlight">mobile devices</span> instead of desktops. Our system is:</p>
+                        <ul>
+                            <li><span class="highlight">Optimized for tablets and smartphones</span> – Access patient records anytime, anywhere.</li>
+                            <li><span class="highlight">No Expensive Hardware Required</span> – Runs on any internet-enabled device, keeping costs low.</li>
+                            <li><span class="highlight">Easy Synchronization</span> – Updates in real-time across all your devices.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>3. Seamless Appointment & Billing Integration</h3>
+                        <p>Managing appointments and finances shouldn't be complicated. We provide:</p>
+                        <ul>
+                            <li><span class="highlight">Digital Scheduling & Reminders</span> – Helps doctors keep track of appointments with automated patient notifications.</li>
+                            <li><span class="highlight">Billing & Invoicing</span> – Generate bills, track payments, and manage financial records effortlessly.</li>
+                            <li><span class="highlight">Insurance & Claims Support</span> – Simplifies claims processing to reduce administrative overhead.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>4. Secure & Compliant Platform</h3>
+                        <p>We prioritize <span class="highlight">data security and compliance</span> to protect sensitive patient information.</p>
+                        <ul>
+                            <li><span class="highlight">HIPAA & Data Privacy Compliance</span> – Ensures patient confidentiality.</li>
+                            <li><span class="highlight">End-to-End Encryption</span> – Protects all communications and records.</li>
+                            <li><span class="highlight">Role-Based Access Control</span> – Allows different levels of access for doctors, nurses, and administrators.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>5. AI-Powered Insights & Decision Support (Future Expansion)</h3>
+                        <p>We aim to integrate <span class="highlight">AI-driven analytics</span> to help doctors make informed decisions based on:</p>
+                        <ul>
+                            <li><span class="highlight">Predictive Analysis</span> – Identifying health risks before they become critical.</li>
+                            <li><span class="highlight">Automated Treatment Suggestions</span> – Recommending best practices for disease management.</li>
+                            <li><span class="highlight">Population Health Management</span> – Helping clinics track trends and improve overall patient outcomes.</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Why Choose AvinyaHealth?</h3>
+                    <ul>
+                        <li><span class="highlight">Designed for Primary Care & Family Physicians</span> – Tailored to their unique needs.</li>
+                        <li><span class="highlight">No IT Expertise Needed</span> – Simple and intuitive interface.</li>
+                        <li><span class="highlight">Affordable & Scalable</span> – Built to support small clinics as well as larger practices.</li>
+                        <li><span class="highlight">24/7 Support & Training</span> – Ensuring a smooth transition to digital healthcare.</li>
+                    </ul>
+                    
+                    <p>AvinyaHealth is here to <span class="highlight">empower physicians</span> with the right tools to <span class="highlight">streamline their practice, improve patient care, and grow their clinic with confidence</span>.</p>
+                </div>
+            </section>
             
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Submit</button>
-        </form>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 AvinyaHealth. All rights reserved.</p>
-    </footer>
+            <section id="contact" class="section contact-section">
+                <div class="content">
+                    <h2>Contact Us</h2>
+                    <div class="contact-card">
+                        <h3>Get In Touch</h3>
+                        <p>Have questions about AvinyaHealth? We're here to help! Reach out to us using the contact information below.</p>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <a href="mailto:chetan.malkhare@gmail.com" class="contact-link">chetan.malkhare@gmail.com</a>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:5028214924" class="contact-link">(502) 821-4924</a>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fab fa-linkedin"></i>
+                                <a href="https://www.linkedin.com/in/chetan-malkhare-422a947b" target="_blank" class="contact-link">LinkedIn Profile</a>
+                            </div>
+                        </div>
+                        
+                        <p>We're excited to discuss how AvinyaHealth can transform your medical practice with our innovative EMR solutions.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Avinya Health. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
